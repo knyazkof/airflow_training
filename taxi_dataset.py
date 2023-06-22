@@ -21,19 +21,6 @@ with DAG("taxi",
     max_active_runs=1,
     tags=['taxi','green']) as dag:
 
-
-    # def fucking_date(*args):
-    #    date_object = datetime.strptime(args[0], "%Y-%m-%d")
-    #    return f'Mother {date_object}'
-
-    # fucking_date = PythonOperator(
-    #     task_id='fucking_date',
-    #     python_callable=fucking_date,
-    #     op_args=['{{ds}}'],
-    #     dag=dag
-    # )
-
-
     def load_taxi(*args):
         date = datetime.strptime(args[0], "%Y-%m-%d")
         first = pd.to_datetime(date).date()
